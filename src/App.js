@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import 'bulma/css/bulma.css';
 import './App.css';
+import * as api from './api.js'
 
-class App extends Component {
+export default class App extends Component {
+
+	constructor(props){
+		super();
+		this.state ={
+			data: null,
+		}
+	}
+
+	componentDidMount(){
+		let promise = api.fetchStockHigh('MSFT');
+
+		promise.then(data => {
+			console.log(data);
+		})
+	}
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
 }
 
-export default App;
+//09K5196VT2U7BY0F
