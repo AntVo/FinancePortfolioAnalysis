@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import './App.css';
-import * as api from './api.js'
+import * as api from './api.js';
+import PortfolioGallery from './portfolio-gallery.js';
+import AddStock from './add-stock.js';
 
 export default class App extends Component {
 
 	constructor(props){
 		super();
 		this.state ={
-			data: null,
+			portfolio: [],
 		}
+	}
+
+	addStockToPortfolio = (stockName) => {
+		const portfolio = this.state.portfolio;
+		portfolio.push(stockName);
+		this.setState({ portfolio: portfolio });
 	}
 
 	componentDidMount(){
 		let promise = api.fetchStockHigh('MSFT');
-
 		promise.then(data => {
 			console.log(data);
 		})
@@ -22,7 +29,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
+      	<AddStock addStockToPortfolio={this.addStockToPortfolio} />
+      	<PortfolioGallery />
       </div>
     );
   }
