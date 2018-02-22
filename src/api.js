@@ -4,7 +4,6 @@
 
 module.exports = {
 
-
 	//		returns a promise object, use .then to access
 	fetchStockHigh: function(stock){
 
@@ -45,7 +44,7 @@ module.exports = {
 	},
 
 	validateStock: function(stock){
-
+		//to do;
 	},
 
 }

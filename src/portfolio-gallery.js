@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-
+import StockItem from './stock-item.js';
 
 export default class PortfolioGallery extends Component {
 
+
 	renderPortfolio = () => {
-		return (<div>hi</div>);
+		const portfolio = this.props.portfolio;
+		console.log(portfolio);
+		return (
+			portfolio.map((stock, index) => <StockItem key={index} stock={stock} />)
+		)
+
 	}
 
   render() {

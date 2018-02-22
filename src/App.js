@@ -16,6 +16,8 @@ export default class App extends Component {
 
 	addStockToPortfolio = (stockName) => {
 		const portfolio = this.state.portfolio;
+
+		// TODO; GET STOCK % change, %sentiment analysis, other data. Make a stock object and push it to the portfolio!
 		portfolio.push(stockName);
 		this.setState({ portfolio: portfolio });
 	}
@@ -31,7 +33,7 @@ export default class App extends Component {
     return (
       <div className="app">
       	<AddStock addStockToPortfolio={this.addStockToPortfolio} />
-      	<PortfolioGallery />
+      	<PortfolioGallery portfolio={this.state.portfolio} />
       </div>
     );
   }
