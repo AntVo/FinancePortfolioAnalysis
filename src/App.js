@@ -16,19 +16,21 @@ export default class App extends Component {
 
 	addStockToPortfolio = (stockName) => {
 		const portfolio = this.state.portfolio;
-		let stock = {};
 		// TODO; GET STOCK % change, %sentiment analysis, other data. Make a stock object and push it to the portfolio!
 		let promise = api.fetchStock(stockName);
+		let promise2 = api.fetchNews(stockName);
+		let stock = {};
+
 		promise.then(data => stock = data)
+		.then((res) => {
+				promise2.then(data2 => stock.news = data2);
+		})
+		.then((res) => stock.symbol = stockName)
 		.then((res) => portfolio.push(stock))
 		.then((res) => this.setState({ portfolio: portfolio }));
 	}
 
 	componentDidMount(){
-		// let promise = api.fetchStockHigh('MSFT');
-		// promise.then(data => {
-		// 	console.log(data);
-		// })
 	}
 
   render() {

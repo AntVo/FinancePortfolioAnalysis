@@ -40,7 +40,7 @@ module.exports = {
 	},
 
 	fetchNews: function(query){
-		fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=b719ab8712f34e61bedaabfb92973e64`)
+		return (fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=b719ab8712f34e61bedaabfb92973e64`)
 			.then(dataWrappedByPromise => dataWrappedByPromise.json())
 			.then(data => 
 					{
@@ -57,6 +57,7 @@ module.exports = {
 			.catch(function(err){
 				console.log(err);
 			})
+		);
 	},
 
 	validateStock: function(stockName){

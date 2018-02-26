@@ -8,6 +8,7 @@ export default class StockItem extends Component {
       <div className="stock-item">
       	{this.props.stock.open}
       	{this.props.stock.close}
+      	{this.props.stock.symbol}
       </div>
     );
   }
