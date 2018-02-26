@@ -10,7 +10,7 @@ export default class App extends Component {
 	constructor(props){
 		super();
 		this.state ={
-			portfolio: [],
+			portfolio: [], // holds stocks{open, close, news, symbol}
 		}
 	}
 
@@ -31,11 +31,13 @@ export default class App extends Component {
 	}
 
 	componentDidMount(){
+		this.addStockToPortfolio('GOOGL');
 	}
 
   render() {
     return (
       <div className="app">
+      	<h1 class="title">Financial Portfolio</h1>
       	<AddStock addStockToPortfolio={this.addStockToPortfolio} />
       	<PortfolioGallery portfolio={this.state.portfolio} />
       </div>

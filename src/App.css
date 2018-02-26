@@ -8,4 +8,10 @@
 
 .portfolio-gallery{
 	margin-top: 40px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.input{
+	width: 300px;
 }
